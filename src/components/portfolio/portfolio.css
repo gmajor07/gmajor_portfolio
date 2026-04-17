@@ -1,0 +1,34 @@
+#portfolioGallery {
+  padding-bottom: 2.75rem;
+}
+
+#portfolioGallery .swiper-pagination {
+  bottom: 0 !important;
+}
+
+#portfolioGallery .swiper-pagination-bullet {
+  width: 0.6rem;
+  height: 0.6rem;
+  background: rgba(255, 255, 255, 0.28);
+  opacity: 1;
+}
+
+#portfolioGallery .swiper-pagination-bullet-active {
+  background: #c8a0ff;
+}
+
+#portfolioGallery .swiper-button-prev,
+#portfolioGallery .swiper-button-next {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(20, 10, 34, 0.88);
+  color: #ffffff;
+}
+
+#portfolioGallery .swiper-button-prev::after,
+#portfolioGallery .swiper-button-next::after {
+  font-size: 0.9rem;
+  font-weight: 700;
+}

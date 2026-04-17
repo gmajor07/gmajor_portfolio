@@ -17,12 +17,12 @@ const commonClass =
 
 const Form = () => {
   return (
-    <div>
-      <p className="text-[12px] xs:text-[14px] max-lg:text-center sm:text-lg font-normal text-soft-dark">
+    <div className="min-w-0">
+      <p className="text-[12px] font-normal text-soft-dark xs:text-[14px] sm:text-lg">
         I usually respond quickly and I&apos;m happy to discuss both short
         projects and longer collaborations.
       </p>
-      <div className="mx-2">
+      <div className="mt-2">
         <form
           className="flex flex-col gap-4 mt-4"
           action="mailto:gkyando5@gmail.com"
@@ -48,11 +48,11 @@ const Form = () => {
             required
           />
 
-          <div className="flex max-xs:flex-col max-xs:gap-4">
+          <div className="grid gap-4 xs:grid-cols-2">
             <input
               type="text"
               placeholder="Budget*"
-              className={`${commonClass} xs:w-[50%] me-5`}
+              className={commonClass}
               required
             />
             <input
@@ -71,7 +71,7 @@ const Form = () => {
           />
           <button
             type="submit"
-            className="btn gap-3 max-lg:mx-auto btn-primary rounded-sm mt-5 text-[13px] md:text-[16px] w-fit font-semibold lg:mt-12.5 p-2 md:px-4"
+            className="btn btn-primary mt-5 w-fit gap-3 rounded-sm p-2 text-[13px] font-semibold md:px-4 md:text-[16px] lg:mt-10"
           >
             Send Message {telegramSVG}
           </button>

@@ -1,12 +1,26 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Projects = ({ data }) => {
+const Projects = ({ data, onSelect, isSelected = false }) => {
   const isExternal = data?.link?.startsWith("http");
   const isMobile = data?.previewType === "mobile";
+  const galleryCount = data?.gallery?.length || 1;
 
   return (
-    <div className="max-w-106 overflow-hidden rounded-[24px] border border-white/10 bg-white/5 text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-2xl hover:shadow-black/20">
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={onSelect}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          onSelect?.();
+        }
+      }}
+      className={`max-w-106 overflow-hidden rounded-[24px] border bg-white/5 text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-2xl hover:shadow-black/20 ${
+        isSelected ? "border-[#9929fb]" : "border-white/10"
+      }`}
+    >
       <div
         className={`relative ${
           isMobile
@@ -33,6 +47,9 @@ const Projects = ({ data }) => {
         </div>
         <div className="absolute left-4 top-4 rounded-full bg-black/55 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#c8a0ff]">
           {data?.highlight}
+        </div>
+        <div className="absolute right-4 top-4 rounded-full border border-white/10 bg-black/55 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
+          {galleryCount} screen{galleryCount > 1 ? "s" : ""}
         </div>
       </div>
       <div className="p-4 xs:p-6">
@@ -63,6 +80,16 @@ const Projects = ({ data }) => {
             </span>
           ))}
         </div>
+        <button
+          type="button"
+          onClick={(event) => {
+            event.stopPropagation();
+            onSelect?.();
+          }}
+          className="mt-5 rounded-full border border-[#9929fb]/40 bg-[#9929fb]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#ddc1ff] transition-all hover:border-[#9929fb] hover:bg-[#9929fb]/20"
+        >
+          Show Gallery
+        </button>
         <a
           href={data?.link}
           target={isExternal ? "_blank" : undefined}

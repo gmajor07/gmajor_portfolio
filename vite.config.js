@@ -5,8 +5,11 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
+  const repoName = env.VITE_REPO_NAME?.trim();
+  const base = repoName ? `/${repoName}/` : "/";
+
   return {
-    base: `/${env.VITE_REPO_NAME}/`,
+    base,
     plugins: [react(), tailwindcss()],
     server: {
       open: true,
