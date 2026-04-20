@@ -10,7 +10,7 @@ const basename = repoName ? `/${repoName}` : undefined;
 export const router = createBrowserRouter(
   [
     {
-      path: `/picto`,
+      path: `/`,
       element: (
         <Suspense fallback={<Loading />}>
           <Main />
@@ -18,8 +18,8 @@ export const router = createBrowserRouter(
       ),
       children: [
         {
-          path: "/",
-          element: <Home></Home>,
+          path: "",
+          element: <Home />,
         },
       ],
     },
