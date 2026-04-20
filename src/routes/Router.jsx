@@ -11,11 +11,7 @@ export const router = createBrowserRouter(
   [
     {
       path: `/`,
-      element: (
-        <Suspense fallback={<Loading />}>
-          <Main />
-        </Suspense>
-      ),
+      element: <Home></Home>,
       children: [
         {
           path: "/",
